@@ -1,0 +1,39 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Contact List</h2>
+
+            <a href="/contact/add" class="btn btn-primary mb-2">Add Contact Data</a>
+            <% if(contacts.length==0){%>
+                <div class="alert alert-danger" role="alert">
+                    No List Contact data.
+                  </div>
+            <% }else %>
+            <table class="table table table-dark table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% let nomor=1%>
+                    <% contacts.forEach(ctc => { %>
+                        <tr>
+                            <th scope="row"><%= nomor++ %></th>
+                            <td><%=ctc.name%></td>
+                            <td><%=ctc.nohp%></td>
+                            <td>
+                                <a href="/contact/<%=ctc.name%>" class="btn btn-success badge rounded-pill">Detail</a>
+                            </td>
+                          </tr>
+                    <% }) %>
+                  
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

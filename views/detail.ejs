@@ -1,0 +1,23 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Contact Details</h2>
+            <% if(!contact){%>
+                <div class="alert alert-danger" role="alert">
+                    No Contact data. <a href="/contact" class="alert-link">Go Back to Contact List</a>
+                  </div>
+            <% }else{ %>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><%=contact.name%></h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary"><%=contact.nohp%></h6>
+                  <p class="card-text"><%=contact.email%></p>
+                  <a href="/contact/edit/<%= contact.name %>" class="btn btn-info">Edit</a>
+                  <a href="/contact/delete/<%= contact.name %>" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete Contact</a>
+                  <a href="/contact"  class="card-link d-block mt-3">Go back</a>
+                </div>
+              </div>
+              <% } %>
+        </div>
+    </div>
+</div>
